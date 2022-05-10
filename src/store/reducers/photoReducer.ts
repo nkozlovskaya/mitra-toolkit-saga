@@ -4,35 +4,38 @@ import { IPhoto } from "../../types";
 export interface PhotoState {
   photos: IPhoto[];
   isLoading: boolean;
-  error: string;
+  //   error: string;
 }
 
 const initialState: PhotoState = {
   photos: [],
   isLoading: false,
-  error: "",
+  //   error: "",
 };
 
 export const photoSlice = createSlice({
-  name: "photo",
+  name: "photos",
   initialState,
   reducers: {
-    getPhotosFetch(state) {
+    getPhotosFetch: (state) => {
       state.isLoading = true;
+      state.photos = [];
+      //   state.error = "";
     },
-    getPhotosSuccess(state, action: PayloadAction<IPhoto[]>) {
+    getPhotosSuccess: (state, action: PayloadAction<IPhoto[]>) => {
       state.photos = action.payload;
       state.isLoading = false;
-      state.error = "";
+      //   state.error = "";
     },
-    getPhotosError(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
+    // getPhotosError(state, action: PayloadAction<string>) {
+    //   state.photos = [];
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // },
   },
 });
 
 const photoReducer = photoSlice.reducer;
 export default photoReducer;
-export const { getPhotosFetch, getPhotosSuccess, getPhotosError } =
-  photoSlice.actions;
+export const { getPhotosFetch, getPhotosSuccess } = photoSlice.actions;
+// getPhotosError
