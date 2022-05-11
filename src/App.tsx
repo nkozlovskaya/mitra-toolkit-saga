@@ -3,17 +3,20 @@ import { useDispatch } from "react-redux";
 import { getPhotosFetch } from "./store/reducers/photoReducer";
 import { useTypedSelector } from "./hooks/redux";
 import { useEffect } from "react";
+import Photos from "./components/Photos";
 // import Ring from "react-cssfx-loading/lib/Ring";
 // import { PhotoState } from "./store/redusers/photoReduser";
 
 function App() {
   const dispatch = useDispatch();
 
-  const { photos } = useTypedSelector((state) => state.photoReducer);
+  const { photosLondon, photosParis, photosBerlin, photosMoscow } =
+    useTypedSelector((state) => state.photoReducer);
 
   useEffect(() => {
     dispatch(getPhotosFetch());
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   // if (isLoading) return <Ring />;
 
@@ -22,23 +25,20 @@ function App() {
   // const getPhotoClick = () => {
   //   dispatch(getPhotosFetch());
   // };
-  console.log(photos);
+  // console.log(photos);
 
   return (
     <div className="App">
-      {photos.map((photo) => (
-        <div key={photo.id}>
-          <img src={photo.urls.small} alt={photo.alt_description} />
-          <p>{photo.description}</p>
-        </div>
-      ))}
+      <Photos photos={photosLondon} title="LONDON" />
+      <Photos photos={photosParis} title="PARIS" />
+      <Photos photos={photosBerlin} title="BERLIN" />
+      <Photos photos={photosMoscow} title="MOSCOW" />
     </div>
   );
 }
 
 export default App;
 
-{
-  /* <button onClick={getPhotoClick}>getPhotoClick</button> */
-}
-// eslint-disable-next-line
+//<p className="photo_p">
+//   {photo.description || photo.alt_description}
+// </p>

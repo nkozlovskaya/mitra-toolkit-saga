@@ -2,15 +2,21 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPhoto } from "../../types";
 
 export interface PhotoState {
-  photos: IPhoto[];
+  photosLondon: IPhoto[];
+  photosParis: IPhoto[];
+  photosMoscow: IPhoto[];
+  photosBerlin: IPhoto[];
   isLoading: boolean;
-  //   error: string;
+  error: string;
 }
 
 const initialState: PhotoState = {
-  photos: [],
+  photosLondon: [],
+  photosParis: [],
+  photosMoscow: [],
+  photosBerlin: [],
   isLoading: false,
-  //   error: "",
+  error: "",
 };
 
 export const photoSlice = createSlice({
@@ -19,23 +25,47 @@ export const photoSlice = createSlice({
   reducers: {
     getPhotosFetch: (state) => {
       state.isLoading = true;
-      state.photos = [];
-      //   state.error = "";
+      state.photosLondon = [];
+      state.photosParis = [];
+      state.photosMoscow = [];
+      state.photosBerlin = [];
+      state.error = "";
     },
-    getPhotosSuccess: (state, action: PayloadAction<IPhoto[]>) => {
-      state.photos = action.payload;
+    getPhotosSuccessLondon: (state, action: PayloadAction<IPhoto[]>) => {
+      state.photosLondon = action.payload;
       state.isLoading = false;
-      //   state.error = "";
+      state.error = "";
     },
-    // getPhotosError(state, action: PayloadAction<string>) {
-    //   state.photos = [];
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // },
+    getPhotosSuccessParis: (state, action: PayloadAction<IPhoto[]>) => {
+      state.photosParis = action.payload;
+      state.isLoading = false;
+      state.error = "";
+    },
+    getPhotosSuccessMoscow: (state, action: PayloadAction<IPhoto[]>) => {
+      state.photosMoscow = action.payload;
+      state.isLoading = false;
+      state.error = "";
+    },
+    getPhotosSuccessBerlin: (state, action: PayloadAction<IPhoto[]>) => {
+      state.photosBerlin = action.payload;
+      state.isLoading = false;
+      state.error = "";
+    },
+    getPhotosError(state, action: PayloadAction<string>) {
+      state.photosLondon = [];
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 });
 
 const photoReducer = photoSlice.reducer;
 export default photoReducer;
-export const { getPhotosFetch, getPhotosSuccess } = photoSlice.actions;
-// getPhotosError
+export const {
+  getPhotosFetch,
+  getPhotosSuccessLondon,
+  getPhotosSuccessParis,
+  getPhotosSuccessMoscow,
+  getPhotosSuccessBerlin,
+  getPhotosError,
+} = photoSlice.actions;

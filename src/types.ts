@@ -9,9 +9,3 @@ export interface IPhoto {
   alt_description: string;
   urls: IPhotoURL;
 }
-
-// export interface IPhoto {
-//   id: number;
-//   title: string;
-//   url: string;
-// }
