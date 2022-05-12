@@ -4,11 +4,12 @@ import { IPhoto } from "../types";
 interface PhotosListProps {
   photos: IPhoto[];
   title: string;
+  error: string;
 }
 
-const Photos: FC<PhotosListProps> = ({ photos, title }) => {
+const Photos: FC<PhotosListProps> = ({ photos, title, error }) => {
   if (!photos || photos.length === 0) {
-    return null;
+    return error ? <h2>{error}</h2> : null;
   }
   return (
     <div className="category">

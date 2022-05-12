@@ -4,6 +4,7 @@ import { getPhotosFetch } from "./store/reducers/photoReducer";
 import { useTypedSelector } from "./hooks/redux";
 import { useEffect } from "react";
 import Photos from "./components/Photos";
+// import { NavBar } from "./components/Navbar";
 // import Ring from "react-cssfx-loading/lib/Ring";
 // import { PhotoState } from "./store/redusers/photoReduser";
 
@@ -12,6 +13,12 @@ function App() {
 
   const { photosLondon, photosParis, photosBerlin, photosMoscow } =
     useTypedSelector((state) => state.photoReducer);
+  const {
+    photosLondonError,
+    photosParisError,
+    photosBerlinError,
+    photosMoscowError,
+  } = useTypedSelector((state) => state.errorReducer);
 
   useEffect(() => {
     dispatch(getPhotosFetch());
@@ -28,11 +35,12 @@ function App() {
   // console.log(photos);
 
   return (
-    <div className="App">
-      <Photos photos={photosLondon} title="LONDON" />
-      <Photos photos={photosParis} title="PARIS" />
-      <Photos photos={photosBerlin} title="BERLIN" />
-      <Photos photos={photosMoscow} title="MOSCOW" />
+    <div>
+      {/* <NavBar /> */}
+      <Photos photos={photosLondon} title="LONDON" error={photosLondonError} />
+      <Photos photos={photosParis} title="PARIS" error={photosParisError} />
+      <Photos photos={photosBerlin} title="BERLIN" error={photosBerlinError} />
+      <Photos photos={photosMoscow} title="MOSCOW" error={photosMoscowError} />
     </div>
   );
 }

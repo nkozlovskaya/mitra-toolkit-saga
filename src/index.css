@@ -20,7 +20,6 @@ code {
 }
 
 .photoList {
-  /* margin: 150px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 400px;
@@ -31,7 +30,7 @@ code {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  max-height: 450px;
+  max-height: 300px;
   max-width: 400px;
 }
 

@@ -3,7 +3,6 @@ import axios from "axios";
 import { IPhoto } from "../types";
 
 const accessKey = "SQ-fIxQZ8f-F7eUfJjnvLsH3viz2IzB0wZJpxfgIt6I";
-// const order_by = "latest";
 const orientation = "landscape";
 const per_page = 6;
 
@@ -16,4 +15,3 @@ export const getPhotos = async (query = "") => {
   return photos;
 };
 
-//&order_by=${order_by}
