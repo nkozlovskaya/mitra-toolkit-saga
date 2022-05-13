@@ -43,3 +43,7 @@ p {
   margin: 10px auto;
   /* max-height: 50px; */
 }
+
+.error {
+  text-align: center;
+}

@@ -48,6 +48,7 @@ function* getPhotoMoscow() {
   }
 }
 function* getPhotoWorker() {
+  // yield fork(getPhotosFromApi);
   yield fork(getPhotoLondon);
   yield fork(getPhotoParis);
   yield fork(getPhotoBerlin);

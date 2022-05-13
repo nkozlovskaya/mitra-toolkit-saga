@@ -7,7 +7,6 @@ export interface PhotoState {
   photosMoscow: IPhoto[];
   photosBerlin: IPhoto[];
   isLoading: boolean;
-  // error: string;
 }
 
 const initialState: PhotoState = {
@@ -16,7 +15,6 @@ const initialState: PhotoState = {
   photosMoscow: [],
   photosBerlin: [],
   isLoading: false,
-  // error: "",
 };
 
 export const photoSlice = createSlice({
@@ -29,35 +27,22 @@ export const photoSlice = createSlice({
       state.photosParis = [];
       state.photosMoscow = [];
       state.photosBerlin = [];
-      // state.error = "";
     },
     getPhotosSuccessLondon: (state, action: PayloadAction<IPhoto[]>) => {
       state.photosLondon = action.payload;
       state.isLoading = false;
-      // state.error = "";
     },
     getPhotosSuccessParis: (state, action: PayloadAction<IPhoto[]>) => {
       state.photosParis = action.payload;
       state.isLoading = false;
-      // state.error = "";
     },
     getPhotosSuccessMoscow: (state, action: PayloadAction<IPhoto[]>) => {
       state.photosMoscow = action.payload;
       state.isLoading = false;
-      // state.error = "";
     },
     getPhotosSuccessBerlin: (state, action: PayloadAction<IPhoto[]>) => {
       state.photosBerlin = action.payload;
       state.isLoading = false;
-      // state.error = "";
-    },
-    getPhotosError(state, action: PayloadAction<string>) {
-      state.photosLondon = [];
-      state.photosParis = [];
-      state.photosMoscow = [];
-      state.photosBerlin = [];
-      state.isLoading = false;
-      // state.error = action.payload;
     },
   },
 });
@@ -70,5 +55,4 @@ export const {
   getPhotosSuccessParis,
   getPhotosSuccessMoscow,
   getPhotosSuccessBerlin,
-  getPhotosError,
 } = photoSlice.actions;

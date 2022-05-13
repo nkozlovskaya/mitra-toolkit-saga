@@ -1,17 +1,17 @@
 import "./App.css";
+import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { getPhotosFetch } from "./store/reducers/photoReducer";
 import { useTypedSelector } from "./hooks/redux";
 import { useEffect } from "react";
 import Photos from "./components/Photos";
-// import { NavBar } from "./components/Navbar";
-// import Ring from "react-cssfx-loading/lib/Ring";
-// import { PhotoState } from "./store/redusers/photoReduser";
+import { NavBar } from "./components/Navbar";
+import Ring from "react-cssfx-loading/lib/Ring";
 
 function App() {
   const dispatch = useDispatch();
 
-  const { photosLondon, photosParis, photosBerlin, photosMoscow } =
+  const { photosLondon, photosParis, photosBerlin, photosMoscow, isLoading } =
     useTypedSelector((state) => state.photoReducer);
   const {
     photosLondonError,
@@ -20,23 +20,17 @@ function App() {
     photosMoscowError,
   } = useTypedSelector((state) => state.errorReducer);
 
+  const memoPhotos = useCallback(() => dispatch(getPhotosFetch()), [dispatch]);
+
   useEffect(() => {
-    dispatch(getPhotosFetch());
-    // eslint-disable-next-line
-  }, []);
+    memoPhotos();
+  }, [memoPhotos]);
 
-  // if (isLoading) return <Ring />;
-
-  // if (error) return <h1>{error}</h1>;
-
-  // const getPhotoClick = () => {
-  //   dispatch(getPhotosFetch());
-  // };
-  // console.log(photos);
+  if (isLoading) return <Ring />;
 
   return (
     <div>
-      {/* <NavBar /> */}
+      <NavBar />
       <Photos photos={photosLondon} title="LONDON" error={photosLondonError} />
       <Photos photos={photosParis} title="PARIS" error={photosParisError} />
       <Photos photos={photosBerlin} title="BERLIN" error={photosBerlinError} />
@@ -47,6 +41,4 @@ function App() {
 
 export default App;
 
-//<p className="photo_p">
-//   {photo.description || photo.alt_description}
-// </p>
+// eslint-disable-next-line

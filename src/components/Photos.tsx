@@ -9,8 +9,9 @@ interface PhotosListProps {
 
 const Photos: FC<PhotosListProps> = ({ photos, title, error }) => {
   if (!photos || photos.length === 0) {
-    return error ? <h2>{error}</h2> : null;
+    return error ? <h2 className="error">{error}</h2> : null;
   }
+
   return (
     <div className="category">
       <h2>{`${title}`}</h2>
@@ -18,7 +19,7 @@ const Photos: FC<PhotosListProps> = ({ photos, title, error }) => {
         {photos.map((photo) => (
           <div key={photo.id} className="photo">
             <img src={photo.urls.small} alt={photo.alt_description} />
-            <p>{photo.description || photo.alt_description}</p>
+            <p>{photo.alt_description.slice(0, 100)}</p>
           </div>
         ))}
       </div>
@@ -27,3 +28,4 @@ const Photos: FC<PhotosListProps> = ({ photos, title, error }) => {
 };
 
 export default Photos;
+//photo.description.slice(0, 100) ||

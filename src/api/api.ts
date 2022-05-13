@@ -14,4 +14,3 @@ export const getPhotos = async (query = "") => {
   const photos: IPhoto[] = await res.data.results;
   return photos;
 };
-
