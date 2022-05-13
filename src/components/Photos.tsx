@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { IPhoto } from "../types";
+import { Image, Nav } from "react-bootstrap";
+import { Card } from "../pages/card";
 
 interface PhotosListProps {
   photos: IPhoto[];
@@ -18,7 +20,7 @@ const Photos: FC<PhotosListProps> = ({ photos, title, error }) => {
       <div className="photoList">
         {photos.map((photo) => (
           <div key={photo.id} className="photo">
-            <img src={photo.urls.small} alt={photo.alt_description} />
+            <Image src={photo.urls.small} alt={photo.alt_description} />
             <p>{photo.alt_description.slice(0, 100)}</p>
           </div>
         ))}

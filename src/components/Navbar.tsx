@@ -4,9 +4,7 @@ import {
   Container,
   Offcanvas,
   NavDropdown,
-  Form,
-  FormControl,
-  Button,
+  Image,
 } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 // import { NavLink } from "react-router-dom";
@@ -15,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const navigation = [
   { id: 1, title: "Galaxy", path: "/" },
   { id: 2, title: "About", path: "/about" },
-  { id: 3, title: "Card", path: "/card" },
+  // { id: 3, title: "Card", path: "/card" },
 ];
 
 export const NavBar = () => {
@@ -24,7 +22,7 @@ export const NavBar = () => {
     <>
       <Navbar bg="dark" variant={"dark"} expand={expand} className="mb-3">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+          <Navbar.Brand href="#">Galery</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${expand}`}
@@ -33,7 +31,7 @@ export const NavBar = () => {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                Offcanvas
+                Menu
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
@@ -43,6 +41,27 @@ export const NavBar = () => {
                     {title}
                   </Nav.Link>
                 ))}
+
+                <NavDropdown.Divider />
+                <NavDropdown.ItemText
+                  style={{ paddingLeft: 0, paddingRight: 0 }}
+                >
+                  Надежда Козловская
+                </NavDropdown.ItemText>
+                <NavDropdown.ItemText>
+                  <Image
+                    roundedCircle={true}
+                    src="https://via.placeholder.com/50"
+                  />
+
+                  <NavDropdown.Item
+                    style={{ paddingLeft: 0, paddingRight: 0 }}
+                    href="mailto: kozlovskayan.i@yandex.ru"
+                  >
+                    kozlovskayan.i@yandex.ru
+                  </NavDropdown.Item>
+                </NavDropdown.ItemText>
+
                 {/* <Nav.Link href="#action1">Galery</Nav.Link>
                 <Nav.Link href="#action2">About</Nav.Link> */}
                 {/* <NavDropdown
@@ -66,18 +85,3 @@ export const NavBar = () => {
     </>
   );
 };
-
-//  <Navbar bg="success" expand="lg" variant="dark">
-//       <Container>
-//         <Navbar.Brand href="/">Galary</Navbar.Brand>
-//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//         <Navbar.Collapse id="basic-navbar-nav">
-//           <Nav className="me-auto">
-//
-//             {/* <Nav.Link href="#link">Link</Nav.Link> */}
-{
-  /* //           </Nav>
-//         </Navbar.Collapse>
-//       </Container>
-//     </Navbar> */
-}
