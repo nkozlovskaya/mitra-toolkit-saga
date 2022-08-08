@@ -1,5 +1,4 @@
 import {
-  // Navbar,
   Nav,
   Container,
   Offcanvas,
@@ -7,20 +6,18 @@ import {
   Image,
 } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
-// import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const navigation = [
-  { id: 1, title: "Galaxy", path: "/" },
+  { id: 1, title: "Galery", path: "/" },
   { id: 2, title: "About", path: "/about" },
-  // { id: 3, title: "Card", path: "/card" },
 ];
 
 export const NavBar = () => {
   const expand = false;
   return (
     <>
-      <Navbar bg="dark" variant={"dark"} expand={expand} className="mb-3">
+      <Navbar bg="primary" variant={"dark"} expand={expand} className="mb-3">
         <Container fluid>
           <Navbar.Brand href="#">Galery</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -51,7 +48,7 @@ export const NavBar = () => {
                 <NavDropdown.ItemText>
                   <Image
                     roundedCircle={true}
-                    src="https://via.placeholder.com/50"
+                    src="../../public/IMG-20200317-WA0048.jpg"
                   />
 
                   <NavDropdown.Item
@@ -61,22 +58,6 @@ export const NavBar = () => {
                     kozlovskayan.i@yandex.ru
                   </NavDropdown.Item>
                 </NavDropdown.ItemText>
-
-                {/* <Nav.Link href="#action1">Galery</Nav.Link>
-                <Nav.Link href="#action2">About</Nav.Link> */}
-                {/* <NavDropdown
-                  title="Dropdown"
-                  id={`offcanvasNavbarDropdown-expand-${expand}`}
-                >
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown> */}
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
@@ -85,3 +66,4 @@ export const NavBar = () => {
     </>
   );
 };
+

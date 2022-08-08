@@ -1,4 +1,4 @@
-import { call, fork, put, takeEvery } from "redux-saga/effects";
+import {delay, call, fork, put, takeEvery } from "redux-saga/effects";
 import { getPhotos } from "../api/api";
 import {
   getPhotosSuccessLondon,
@@ -13,7 +13,9 @@ import {
   getMoscowError,
 } from "../store/reducers/errorReducer";
 
-import { IPhoto } from "../types";
+import { IPhoto } from "../types/photoType";
+
+
 
 function* getPhotoLondon() {
   try {
@@ -48,7 +50,7 @@ function* getPhotoMoscow() {
   }
 }
 function* getPhotoWorker() {
-  // yield fork(getPhotosFromApi);
+  yield delay(1000);
   yield fork(getPhotoLondon);
   yield fork(getPhotoParis);
   yield fork(getPhotoBerlin);

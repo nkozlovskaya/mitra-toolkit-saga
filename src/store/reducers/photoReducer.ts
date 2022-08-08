@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IPhoto } from "../../types";
+import { IPhoto } from "../../types/photoType";
 
 export interface PhotoState {
   photosLondon: IPhoto[];

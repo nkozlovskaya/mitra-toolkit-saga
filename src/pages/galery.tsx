@@ -1,7 +1,7 @@
-import { FC, useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { NavBar } from "../components/navbar";
-import Photos from "../components/photos";
+import PhotosList from "../components/photosList";
 import { useTypedSelector } from "../hooks/redux";
 import { getPhotosFetch } from "../store/reducers/photoReducer";
 import { Spinner } from "react-bootstrap";
@@ -11,6 +11,7 @@ export const Galery = () => {
 
   const { photosLondon, photosParis, photosBerlin, photosMoscow, isLoading } =
     useTypedSelector((state) => state.photoReducer);
+
   const {
     photosLondonError,
     photosParisError,
@@ -24,15 +25,36 @@ export const Galery = () => {
     memoPhotos();
   }, [memoPhotos]);
 
-  if (isLoading) return <Spinner animation="border" />;
+  if (isLoading)
+    return (
+      <Spinner
+        animation="border"
+        className="spinner"
+        variant="primary"
+        // size=""
+        // animation="grow"
+      />
+    );
 
   return (
     <div>
       <NavBar />
-      <Photos photos={photosLondon} title="LONDON" error={photosLondonError} />
-      <Photos photos={photosParis} title="PARIS" error={photosParisError} />
-      <Photos photos={photosBerlin} title="BERLIN" error={photosBerlinError} />
-      <Photos photos={photosMoscow} title="MOSCOW" error={photosMoscowError} />
+      <PhotosList
+        photos={photosLondon}
+        title="LONDON"
+        error={photosLondonError}
+      />
+      <PhotosList photos={photosParis} title="PARIS" error={photosParisError} />
+      <PhotosList
+        photos={photosBerlin}
+        title="BERLIN"
+        error={photosBerlinError}
+      />
+      <PhotosList
+        photos={photosMoscow}
+        title="MOSCOW"
+        error={photosMoscowError}
+      />
     </div>
   );
 };
