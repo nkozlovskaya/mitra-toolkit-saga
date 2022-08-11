@@ -1,7 +1,6 @@
-import { getPhotoByID } from './actionCreator';
-import { createSlice,  PayloadAction } from "@reduxjs/toolkit";
+import { getPhotoByID } from "./actionCreator";
+import { AnyAction, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPhoto } from "../../../types/photoType";
-
 
 interface initialStateProps {
   photo: IPhoto;
@@ -113,43 +112,52 @@ const initialState: initialStateProps = {
     downloads: 0,
     topics: [],
   },
-  error: "",
+  error: null,
   loading: false,
 };
-
-
 
 export const photoByIDSlice = createSlice({
   name: "photoByID",
   initialState,
-  reducers: {},
-  extraReducers: {
-    [getPhotoByID.pending.type]: (state) => {
-      state.loading = true;
-      state.error = null;
-    },
-    [getPhotoByID.fulfilled.type]: (state, action: PayloadAction<IPhoto>) => {
-      state.photo = action.payload;
-      state.loading = false;
-    },
-    [getPhotoByID.rejected.type]: (state, action: PayloadAction<string>) => {
-      state.error = action.payload;
-      state.loading = false;
-    },
+  reducers: {
+
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getPhotoByID.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getPhotoByID.fulfilled, (state, action) => {
+        state.photo = action.payload;
+        state.loading = false;
+      })
+      .addMatcher(isError, (state, action: PayloadAction<string>) => {
+        state.error = action.payload;
+        state.loading = false;
+      });
+  
   },
 });
+
+function isError(action: AnyAction) {
+  return action.type.endsWith("rejected");
+}
 
 const photoByIDReducer = photoByIDSlice.reducer;
 export default photoByIDReducer;
 
-//  extraReducers: (builder) => {
-//   builder
-//     .addCase(getPhotoByID.pending, (state) => {
-//       state.loading = true;
-//       state.error = null;
-//     })
-//     .addCase(getPhotoByID.fulfilled, (state, action) => {
-//       state.photo = action.payload;
-//       state.loading = false;
-//     });
+// extraReducers: {
+//   [getPhotoByID.pending.type]: (state) => {
+//     state.loading = true;
+//     state.error = null;
+//   },
+//   [getPhotoByID.fulfilled.type]: (state, action: PayloadAction<IPhoto>) => {
+//     state.photo = action.payload;
+//     state.loading = false;
+//   },
+//   [getPhotoByID.rejected.type]: (state, action: PayloadAction<string>) => {
+//     state.error = action.payload;
+//     state.loading = false;
+//   },
 // },
