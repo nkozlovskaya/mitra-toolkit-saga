@@ -1,13 +1,13 @@
-import { useCallback, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { FC, useCallback, useEffect } from "react";
+import { useAppDispatch } from "../hooks/redux";
 import { NavBar } from "../components/navbar";
 import PhotosList from "../components/photosList";
 import { useTypedSelector } from "../hooks/redux";
 import { getPhotosFetch } from "../store/reducers/photoReducer";
 import { Spinner } from "react-bootstrap";
 
-export const Galery = () => {
-  const dispatch = useDispatch();
+export const Galery:FC = () => {
+  const dispatch = useAppDispatch();
 
   const { photosLondon, photosParis, photosBerlin, photosMoscow, isLoading } =
     useTypedSelector((state) => state.photoReducer);

@@ -120,7 +120,9 @@ export const photoByIDSlice = createSlice({
   name: "photoByID",
   initialState,
   reducers: {
-
+    fetchPhotoByID(state, action) {
+      state.photo = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -136,7 +138,6 @@ export const photoByIDSlice = createSlice({
         state.error = action.payload;
         state.loading = false;
       });
-  
   },
 });
 
