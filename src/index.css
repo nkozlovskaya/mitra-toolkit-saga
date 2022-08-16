@@ -5,7 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: grey;
+  /* background: rgb(16, 157, 228);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(16, 157, 238, 1) 0%,
+    rgba(237, 247, 249, 1) 100%
+  ); */
+  background: rgb(72, 139, 221);
+  background: linear-gradient(
+    90deg,
+    rgba(72, 139, 221, 1) 0%,
+    rgba(39, 238, 241, 1) 50%,
+    rgba(202, 241, 249, 1) 100%
+  );
+  /* background: rgb(8, 104, 223);
+  background: radial-gradient(
+    circle,
+    rgba(8, 104, 223, 1) 0%,
+    rgba(16, 235, 238, 1) 50%,
+    rgba(237, 247, 249, 1) 100%
+  ); */
 }
 
 code {
@@ -18,13 +38,14 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 }
 
 .photoList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 400px;
-  grid-gap: 10px;
+  grid-gap: 15px;
 }
 
 .photo {

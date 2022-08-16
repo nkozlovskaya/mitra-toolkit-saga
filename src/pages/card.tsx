@@ -4,9 +4,7 @@ import { Spinner } from "react-bootstrap";
 import { useEffect, useCallback } from "react";
 import { useTypedSelector } from "../hooks/redux";
 import { CardPhoto } from "../components/ cardPhoto";
-// import { getPhotoByID } from "../store/reducers/photoByIDReduser/actionCreator";
 import { useActions } from "../hooks/useActions";
-// import photoByID from '../store/reducers/photoByIDReduser/photoByIdReducer'
 
 export const Card = () => {
   const { id = "" } = useParams();
