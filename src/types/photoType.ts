@@ -41,7 +41,7 @@ export interface Social {
 
 export interface User {
   id: string;
-  updated_at: Date;
+  // updated_at: Date;
   username: string;
   name: string;
   first_name: string;
@@ -666,9 +666,9 @@ export interface RelatedCollections {
 
 export interface IPhoto {
   id: string;
-  created_at: Date;
-  updated_at: Date;
-  promoted_at: Date;
+  // created_at: Date;
+  // updated_at: Date;
+  // promoted_at: Date;
   width: number;
   height: number;
   color: string;

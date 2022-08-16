@@ -10,17 +10,21 @@ import { useActions } from "../hooks/useActions";
 
 export const Card = () => {
   const { id = "" } = useParams();
+
+console.log(id)
+
   const { getPhotoByID } = useActions();
 
   const { photo, loading, error } = useTypedSelector(
     (state) => state.photoByIDReducer
   );
 
-  const fetchPhoto = useCallback(() => getPhotoByID(id), [id]);
+  const fetchPhoto = useCallback(() => getPhotoByID(id), [getPhotoByID, id]);
 
   useEffect(() => {
     fetchPhoto();
-  }, [fetchPhoto]);
+    //eslint-disable-next-line
+  }, []);
 
   if (loading) return <Spinner animation="border" className="spinner" />;
   if (error) return <h1>{error}</h1>;

@@ -1,4 +1,4 @@
-import { getPhotoByID } from "./actionCreator";
+import { getPhotoByID } from "../../actions/actionsPhotoByID";
 import { AnyAction, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPhoto } from "../../../types/photoType";
 
@@ -11,9 +11,9 @@ interface initialStateProps {
 const initialState: initialStateProps = {
   photo: {
     id: "",
-    created_at: new Date(),
-    updated_at: new Date(),
-    promoted_at: new Date(),
+    // created_at: new Date(),
+    // updated_at: new Date(),
+    // promoted_at: new Date(),
     width: 0,
     height: 0,
     color: "",
@@ -42,7 +42,7 @@ const initialState: initialStateProps = {
     topic_submissions: {},
     user: {
       id: "",
-      updated_at: new Date(),
+      // updated_at: new Date(),
       username: "",
       name: "",
       first_name: "",
@@ -119,11 +119,7 @@ const initialState: initialStateProps = {
 export const photoByIDSlice = createSlice({
   name: "photoByID",
   initialState,
-  reducers: {
-    fetchPhotoByID(state, action) {
-      state.photo = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getPhotoByID.pending, (state) => {
