@@ -1,6 +1,7 @@
 # Mitra Toolkit Saga Project
 
-SPA на React [Demo](https://github.com/facebook/create-react-app).
+SPA на React [Demo](https://nkozlovskaya.github.io/mitra-toolkit-saga
+).
 
 ## Ключевые технологии, которые использовались в проекте
 
