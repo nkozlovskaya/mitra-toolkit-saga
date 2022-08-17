@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nkozlovskaya/mitra-toolkit-saga/static/css/main.2a8ec7a5.css",
+    "main.js": "/nkozlovskaya/mitra-toolkit-saga/static/js/main.7b94a9bf.js",
+    "index.html": "/nkozlovskaya/mitra-toolkit-saga/index.html",
+    "main.2a8ec7a5.css.map": "/nkozlovskaya/mitra-toolkit-saga/static/css/main.2a8ec7a5.css.map",
+    "main.7b94a9bf.js.map": "/nkozlovskaya/mitra-toolkit-saga/static/js/main.7b94a9bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a8ec7a5.css",
+    "static/js/main.7b94a9bf.js"
+  ]
+}
