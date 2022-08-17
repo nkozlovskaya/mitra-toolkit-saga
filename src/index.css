@@ -5,13 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: rgb(16, 157, 228);
-  background: radial-gradient(
-    circle,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(16, 157, 238, 1) 0%,
-    rgba(237, 247, 249, 1) 100%
-  ); */
   background: rgb(72, 139, 221);
   background: linear-gradient(
     90deg,
@@ -19,13 +12,6 @@ body {
     rgba(39, 238, 241, 1) 50%,
     rgba(202, 241, 249, 1) 100%
   );
-  /* background: rgb(8, 104, 223);
-  background: radial-gradient(
-    circle,
-    rgba(8, 104, 223, 1) 0%,
-    rgba(16, 235, 238, 1) 50%,
-    rgba(237, 247, 249, 1) 100%
-  ); */
 }
 
 code {
@@ -79,4 +65,23 @@ p {
 .card {
   /* height: 800px; */
   margin: 100px auto;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 100px auto;
+  width: 300px;
+  height: 130px;
+}
+.bg_color {
+  background: rgb(72, 139, 221);
+  background: linear-gradient(
+    90deg,
+    rgba(72, 139, 221, 1) 0%,
+    rgba(39, 238, 241, 1) 50%,
+    rgba(202, 241, 249, 1) 100%
+  );
 }

@@ -31,8 +31,7 @@ export const Galery:FC = () => {
         animation="border"
         className="spinner"
         variant="primary"
-        // size=""
-        // animation="grow"
+      
       />
     );
 

@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Mitra Toolkit Saga Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ SPA на React [Demo](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Ключевые технологии, которые использовались в проекте
 
-In the project directory, you can run:
+- React;
+- React-bootstrap;
+- React-router;
+- Axios;
+- Redux;
+- Redux-saga;
+- Redux Toolkit;
+- Git;
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Описание задачи
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Создать сайт-галерею, где присутствуют 3 страницы (роута):
+- «Галерея» (главная страница), где располагаются картинки.
+- «Обо мне», где располагается краткая информация обо мне.
+- Подробности о картинке (куда необходимо вывести поля краткую информацию о картинке – заголовок, id, ссылка)
+Получить данные о картинках необходимо через фейковое api
 
-### `npm test`
+В данном проекте использовался сервис с фотографиями https://unsplash.com/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Подробное описание
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. «Галерея» (главная страница)
+1.1. Содержит 4 категории, в каждой категории присутствуют 6 картинок (итого нужно подгрузить с сервера только 24 первых картинки и разбить их по 4м категориям).
+В этом проекте в качестве категорий были выбраны города Лондон, Париж, Берлин и Москва. И для каждого города выводилось 6 фотографий достопримечательностей из каждого города
+1.2. При загрузке данных с сервера нужно отобразить сперва лоадер, а только потом подгруженный контент (создайте дополнительно искусственную задержку в 0.5 секунд чтобы лоадер повисел подольше).
+1.3. Должен присутствовать хэдер с «меню-бургером». При нажатии на него слева должно всплывать навигационное меню, где будет присутствовать 2 ссылки («Галерея» и «Обо мне»), а также отображаться ваш аватар, имя и почтовый адрес.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. «Обо мне»
+2.1. Краткая информация обо мне (ссылка на мое резюме с hh.ru)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. «Подробности о картинке» 
+3.1. Карточка с фотографией и кратким описанием изображения на ней
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 
