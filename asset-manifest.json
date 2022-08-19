@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/mitra-toolkit-saga/static/css/main.2a8ec7a5.css",
-    "main.js": "/mitra-toolkit-saga/static/js/main.5c597719.js",
+    "main.js": "/mitra-toolkit-saga/static/js/main.0b7e227d.js",
     "index.html": "/mitra-toolkit-saga/index.html",
     "main.2a8ec7a5.css.map": "/mitra-toolkit-saga/static/css/main.2a8ec7a5.css.map",
-    "main.5c597719.js.map": "/mitra-toolkit-saga/static/js/main.5c597719.js.map"
+    "main.0b7e227d.js.map": "/mitra-toolkit-saga/static/js/main.0b7e227d.js.map"
   },
   "entrypoints": [
     "static/css/main.2a8ec7a5.css",
-    "static/js/main.5c597719.js"
+    "static/js/main.0b7e227d.js"
   ]
 }
