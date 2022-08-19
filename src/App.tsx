@@ -1,21 +1,28 @@
 import "./App.css";
-import { About } from "./pages/about";
-import { Card } from "./pages/card";
-import { Galery } from "./pages/galery";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { router } from "./router/Router";
 
-function App() {
+export const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Galery />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/card/:id" element={<Card />} />
-        <Route path="*" element={<Galery />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path={router.galery.path} element={router.galery.element} />
+      <Route path={router.about.path} element={router.about.element} />
+      <Route path={router.card.path} element={router.card.element} />
+      <Route
+        path={router.pageNotFound.path}
+        element={router.pageNotFound.element}
+      />
+    </Routes>
   );
-}
+};
 
-export default App;
+// return (
+//   <Routes>
+//     <Route path="/" element={<Galery />} />
+//     <Route path="/about" element={<About />} />
+//     <Route path="/card/:id" element={<Card />} />
 
+//     {/* <Route path="*" element={<Galery />} /> */}
+//   </Routes>
+// );
+//basename="/mitra-toolkit-saga";

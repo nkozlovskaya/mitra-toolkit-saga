@@ -9,8 +9,6 @@ import { useActions } from "../hooks/useActions";
 export const Card = () => {
   const { id = "" } = useParams();
 
-console.log(id)
-
   const { getPhotoByID } = useActions();
 
   const { photo, loading, error } = useTypedSelector(

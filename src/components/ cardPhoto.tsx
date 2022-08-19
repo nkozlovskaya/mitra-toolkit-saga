@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Card, Button } from "react-bootstrap";
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 
 interface ICardPhotoProps {
   photo: {
@@ -26,6 +26,7 @@ export const CardPhoto: FC<ICardPhotoProps> = ({ photo }) => {
           <Button variant="primary" onClick={() => navigate(-1)}>
             BACK
           </Button>
+         
         </Card.Body>
       </Card>
     </>

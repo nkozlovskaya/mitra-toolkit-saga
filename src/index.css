@@ -85,3 +85,30 @@ p {
     rgba(202, 241, 249, 1) 100%
   );
 }
+
+.error {
+  border-radius: 15px;
+  width: 100%;
+  min-height: calc(100vh - 56px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.error__number {
+  font-size: 40px;
+  font-weight: 700;
+}
+.error__message {
+  font-size: 24px;
+}
+.error__link {
+  margin-top: 30px;
+  border-radius: 15px;
+  border: 4px double #212425;
+  padding: 10px 20px;
+  font-size: 24px;
+}
